@@ -1,6 +1,6 @@
-import userModel from "../Model/userSchema.js";
 import bcrypt from "bcryptjs";
 import { createToken } from "../jwtToken/jwtToken.js";
+import userModel from "../model/userSchema.js";
 // Register user controller
 
 export const registerController = async (req, res) => {
@@ -84,7 +84,7 @@ export const loginController = async (req, res) => {
 
 export const logoutController = async (req, res) => {
   try {
-    await res.cookie('token', '', { expires: new Date(Date.now()) });
+    await res.cookie("token", "", { expires: new Date(Date.now()) });
 
     res.status(200).json({ success: true, message: "Logged out successfully" });
   } catch (error) {
